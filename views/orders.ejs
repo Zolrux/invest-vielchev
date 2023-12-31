@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/orders.css">
+	<title>Invest | Course Work</title>
+</head>
+
+<body>
+
+	<div class="orders">
+		<div class="orders__body">
+			<div class="orders__header">
+				<div class="orders__info">
+					<div class="orders__name"><%= user.firstName %></div>
+					<div class="orders__role">[<span><%= user.role %></span>]</div>
+				</div>
+				<a href="/logout" class="orders__logout">Вихід</a>
+				<a href="/" class="orders__link">
+					<img src="/images/icons/user.svg" alt="user icon">
+				</a>
+			</div>
+			<div class="orders__content ">
+				<% if (user.role === 'user') { %>
+				<h1 class="orders__title">Мої замовлення</h1>
+				<% } else { %>
+				<h1 class="orders__title">Усі замовлення</h1>
+				<% } %>
+				<ul class="orders__list orders-list">
+					<% if (orders.length) {%>
+						<% orders.forEach(order => { %>
+							<li class="orders-list__item item-orders" <%- user.role === 'admin' ? 'id=item-' + order.id : '' %>>
+								<div class="item-orders__column">
+									<div class="item-orders__number">№<span><%- order.id.toString().padStart(6, '0') %></span></div>
+									<% if (order.statusClass === "_in-proccess") { %>
+										<div class="item-orders__status-text _in-proccess"><%- order.status %></div>
+										<div class="item-orders__icon">
+											<img src="/images/icons/clock.svg" alt="clock icon">
+										</div>
+									<% } else if (order.statusClass === "_done") { %>
+										<div class="item-orders__status-text _done"><%- order.status %></div>
+										<div class="item-orders__icon">
+											<img src="/images/icons/check.svg" alt="check icon">
+										</div>
+									<% } else { %>
+										<div class="item-orders__status-text _rejected"><%- order.status %></div>
+									<% } %>
+								</div>
+								<div class="item-orders__column">
+									<div class="item-orders__category"><%- order.category -%></div>
+									<time datetime="<%- order.date -%>" class="item-orders__date"><%- order.date -%></time>
+								</div>
+								<div class="item-orders__column">
+									<div class="item-orders__contact">Контакт</div>
+									<div class="item-orders__phone"><%- order.phoneNumber -%></div>
+								</div>
+								<% if (user.role === 'admin') { %>
+								<button type="button" class="item-orders__status-btn">
+									<span></span>
+									<span></span>
+									<span></span>
+								</button>
+								<div class="overlay">
+									<div class="modal-status">
+										<h3 class="modal-status__title">Статус</h3>
+										<ul class="modal-status__list">
+											<li class="modal-status__item">
+												<button type="button" class="modal-status__btn _in-proccess" data-status="in-proccess">В обробці</button>
+											</li>
+											<li class="modal-status__item">
+												<button type="button" class="modal-status__btn _rejected" data-status="rejected">Відхилено</button>
+											</li>
+											<li class="modal-status__item">
+												<button type="button" class="modal-status__btn _done" data-status="done">Виконано</button>
+											</li>
+										</ul>
+										<button type="button" class="modal-status__close">
+											<img src="/images/icons/close-modal.svg" alt="close modal icon">
+										</button>
+									</div>
+								</div>
+								<% } %>
+							</li>
+						<% }); %> 
+					<% } else { %>
+						<div class="orders-list__empty">Немає замовлень...</div>
+					<% } %>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script src="/js/orders.js"></script>
+</body>
+
+</html>

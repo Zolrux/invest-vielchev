@@ -1,0 +1,231 @@
+@import url('./fonts.css');
+@import url('./reset.css');
+@import url('./vars.css');
+@import url('./base.css');
+
+.orders {
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: var(--main-color);
+  color: var(--black);
+  padding-bottom: 105px;
+}
+.orders__body {
+  padding: 20px 30px;
+}
+.orders__header {
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  column-gap: 30px;
+}
+.orders__info {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.orders__name {
+  font-size: 25px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.orders__role {
+  text-transform: uppercase;
+}
+a.orders__logout {
+  margin-left: auto;
+  color: var(--btn-bg);
+  font-size: 18px;
+  font-weight: 400;
+  text-decoration: underline;
+  text-transform: uppercase;
+  text-underline-offset: 3px;
+}
+.orders__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.orders__link img {
+  filter: invert(1);
+}
+.orders__title {
+  color: var(--purple);
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  text-decoration-line: underline;
+  margin-bottom: 40px;
+}
+.orders__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+}
+.orders-list__item {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+  border-radius: 20px;
+  background: var(--order-list-bg);
+  box-shadow: 5px 10px 4px 0px rgba(0, 0, 0, 0.25);
+  padding: 15px 35px 10px;
+  color: var(--main-color);
+  margin: 0 auto;
+}
+.item-orders {
+  display: flex;
+  align-items: center;
+  column-gap: 35px;
+}
+.item-orders__number {
+  font-weight: 300;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.item-orders__status-text {
+  font-weight: 300;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.item-orders__status-text._in-proccess {
+  color: var(--orange);
+}
+.item-orders__status-text._done {
+  color: var(--lime);
+}
+.item-orders__icon {
+  text-align: center;
+}
+.item-orders__category,
+.item-orders__contact {
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+.item-orders__date {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.item-orders__phone {
+  font-size: 14px;
+}
+
+.item-orders__status-text._rejected {
+  color: var(--red);
+}
+
+.item-orders__status-btn {
+  position: absolute;
+  row-gap: 3px;
+  top: 15px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.item-orders__status-btn span {
+  position: absolute;
+  left: 50%;
+  display: block;
+  width: 4px;
+  height: 4px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+}
+
+.item-orders__status-btn span:nth-child(1) {
+  top: 0;
+  transform: translateX(-50%);
+}
+.item-orders__status-btn span:nth-child(2) {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.item-orders__status-btn span:nth-child(3) {
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.overlay {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.7s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 100;
+}
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-status {
+  position: relative;
+  max-width: 400px;
+  width: 100%;
+  background-color: var(--main-color);
+  padding: 30px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.7s ease 0.3s;
+}
+.overlay.active .modal-status {
+  opacity: 1;
+  visibility: visible;
+}
+.modal-status__title {
+  color: var(--black);
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.modal-status__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  color: var(--black);
+}
+.modal-status__btn {
+  display: block;
+  max-width: 200px;
+  width: 100%;
+  padding: 10px 30px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--main-color);
+  font-weight: 700;
+}
+
+.modal-status__btn._in-proccess {
+  background-color: var(--orange);
+}
+.modal-status__btn._done {
+  background-color: var(--lime);
+}
+.modal-status__btn._rejected {
+  background-color: var(--red);
+}
+
+.modal-status__close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.orders-list__empty {
+  text-align: center;
+}

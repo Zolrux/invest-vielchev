@@ -1,0 +1,19 @@
+:root {
+	--main-color: #fff;
+	--gray: #E6E6E6;
+	--black: #000;
+	--title-color: #C1C1C1;
+	--title-light-color: #C7C7C7;
+	--services-1-color: #06B5CE;
+	--services-2-color: #009688;
+	--services-3-color: #9BCC62;
+	--red: #FF0000;
+	--purple: #494B8C;
+	--orange: #eca413;
+	--lime: #00FF29;
+	--btn-bg: #6D73FE;
+	--order-list-bg: #555;
+	--hover-line: #30D25E;
+	--modal-title-color: #5C5C5C;
+	--modal-text-color: #4A4A4A;
+}

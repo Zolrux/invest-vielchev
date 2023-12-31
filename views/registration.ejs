@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/auth.css">
+	<title>Invest | Course Work</title>
+</head>
+
+<body>
+
+	<div class="registration-wrapper">
+		<div class="registration">
+			<div class="registration__header">
+				<h2 class="auth-title">Реєстрація</h2>
+			</div>
+			<form action="/register" method="POST" class="registration__form">
+				<input class="registration__input auth-input" type="text" name="firstName" placeholder="Ім’я" value="<%- fields ? fields.firstName : '' %>">
+				<input class="registration__input auth-input" type="text" name="lastName" placeholder="Прізвище" value="<%- fields ? fields.lastName : '' %>">
+				<input class="registration__input auth-input" type="email" name="email" placeholder="E-mail" value="<%- fields ? fields.email : '' %>">
+				<input class="registration__input auth-input" type="tel" name="phone" placeholder="+38(0__)___ __ __" value="<%- fields ? fields.phone : '' %>">
+				<input class="registration__input auth-input" type="password" name="password" placeholder="Пароль"  value="<%- fields ? fields.password : '' %>">
+				<input class="registration__input auth-input" type="password" name="confirmPassword" placeholder="Повторити пароль" value="<%- fields ? fields.confirmPassword : '' %>">
+				<% if (!errors) { %>
+				<p class="registration__text">
+					Переконайтесь, що ви вірно вказали E-mail i Телефон, т.я. вони будуть використовуватись для отримання пароля доступу.
+				</p>
+				<% }  %>
+				<button class="registration__btn auth-btn" type="submit">реєстрація</button>
+			</form>
+			<% if (errors && errors.length) { %>
+				<div class="registration__error-wrapper">
+					<% errors.forEach(error => { %>
+						<div class="registration__error">
+							<%= error %>
+						</div>
+					<% }); %> 
+				</div>
+			<% }  %>
+			<a href="/login" class="login__link">вхід</a>
+		</div>
+	</div>
+
+</body>
+
+</html>

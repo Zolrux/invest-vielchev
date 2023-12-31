@@ -1,0 +1,22 @@
+[class*='__container'] {
+  max-width: 1110px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.title {
+  color: var(--title-light-color);
+  font-size: 60px;
+  font-weight: 700;
+  text-align: center;
+}
+.title::before {
+  content: '/';
+  color: var(--hover-line);
+}

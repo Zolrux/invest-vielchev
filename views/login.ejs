@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="/css/auth.css">
+	<title>Invest | Course Work</title>
+</head>
+
+<body>
+
+	<div class="login-wrapper">
+		<div class="login">
+			<div class="login__header">
+				<h2 class="auth-title">Авторизація</h2>
+			</div>
+			<form action="/login" class="login__form" method="POST">
+				<input class="login__input auth-input" type="email" name="email" placeholder="E-mail" value="<%- fields ? fields.email : '' %>">
+				<input class="login__input auth-input" type="password" name="password" placeholder="Пароль" value="<%- fields ? fields.password : '' %>">
+				<% if (errors && errors.length) { %>
+					<div class="login__error-wrapper">
+						<% errors.forEach(error => { %>
+							<div class="login__error">
+								<%= error %>
+							</div>
+						<% }); %> 
+					</div>
+				<% }  %>
+				<button class="login__btn auth-btn" type="submit">Вхід</button>
+			</form>
+			<a href="/registration" class="login__link">Реєстрація</a>
+		</div>
+	</div>
+
+</body>
+
+</html>
